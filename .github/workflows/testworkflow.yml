@@ -12,7 +12,7 @@ jobs:
       uses: actions/checkout@master
 
     - name: Login
-      uses: atlassian/gajira-login@master
+      uses: atlassian/thisiscpta-login@master
       env:
         JIRA_BASE_URL: ${{ secrets.JIRA_BASE_URL }}
         JIRA_USER_EMAIL: ${{ secrets.JIRA_USER_EMAIL }}
