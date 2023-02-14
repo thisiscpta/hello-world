@@ -1,7 +1,7 @@
 on:
   workflow_dispatch
 
-name: Test Transition Issue
+name: Test Workflow
 
 jobs:
   build:
