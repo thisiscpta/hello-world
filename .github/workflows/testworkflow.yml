@@ -2,7 +2,7 @@ on:
   workflow_dispatch:
     # Inputs the workflow accepts.
     inputs:
-      tagname:
+      taganame:
         # Get the tagname to use
         description: 'What is the tag name to use'
         # Default value if no value is explicitly provided
@@ -25,8 +25,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
         with:
-          tag_name: ${{ github.events.input.tagname }}
-          release_name: Release ${{ github.events.input.tagname }}
+          tag_name: ${{ github.events.input.taganame }}
+          release_name: Release ${{ github.events.input.taganame }}
           body: |
             Changes in this Release
             - xyz Change
