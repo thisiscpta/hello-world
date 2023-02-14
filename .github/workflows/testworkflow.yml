@@ -1,5 +1,14 @@
 on:
-  workflow_dispatch
+  workflow_dispatch:
+    # Inputs the workflow accepts.
+    inputs:
+      tagname:
+        # Get the tagname to use
+        description: 'What is the tag name to use'
+        # Default value if no value is explicitly provided
+        default: 'vXXX'
+        # Input has to be provided for the workflow to run
+        required: true
 
 name: Test Workflow
 
@@ -16,11 +25,11 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
         with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
+          tag_name: ${{ github.events.input.tagname }}
+          release_name: Release ${{ github.events.input.tagname }}
           body: |
             Changes in this Release
-            - First Change
-            - Second Change
+            - xyz Change
+            - dev Change
           draft: false
           prerelease: false
